@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class RoadTrip {
+	public static void main(String[] args) throws Exception {
+
+		final int SPEED_COL = 0;
+		final int TIME_COL = 1;
+
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+
+			int trips = sc.nextInt();
+
+			if (trips == -1) { // -1 = exit.
+				break;
+			}
+			
+			if(trips == 0 || trips > 10) {
+				return;
+			}
+			
+			int[][] legs = new int[trips][2];
+
+						
+			for (int i = 0; i < trips; i++) {
+
+				int s = sc.nextInt();
+				int t = sc.nextInt();
+				
+				if(s == 0 || s > 90) {
+					return;
+				}
+				
+				if(t == 0 || t > 12) {
+					return;
+				}
+
+				legs[i][SPEED_COL] = s;
+				legs[i][TIME_COL] = t; 
+			}
+
+			int distance = 0;
+			for (int i = 0; i < trips; i++) {
+
+				if (i == 0) {
+					distance += legs[i][SPEED_COL] * legs[i][TIME_COL];
+				} else {
+					distance += legs[i][SPEED_COL] * (legs[i][TIME_COL] - legs[i - 1][TIME_COL]);
+				}
+			}
+
+			System.out.printf("\n%d miles\n", distance);
+
+		}
+
+	}
+
+}

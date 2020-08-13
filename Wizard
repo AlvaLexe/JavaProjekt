@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Wizard {
+
+  public static void main(String[] args)  {
+
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter a number between 1 and 100");
+
+
+    int count = 0;
+
+    if(count>0 || count<=100) {
+
+    while (sc.hasNext()) {
+      if (sc.hasNextInt()) {
+        count++;
+      }
+    }
+
+        System.out.println("Abracadabra");
+
+      }
+    }
+
+  }
+
+}
